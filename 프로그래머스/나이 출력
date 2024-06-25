@@ -1,0 +1,11 @@
+using System;
+
+public class Solution {
+    public int solution(int age) {
+        
+        int answer = 2022 - age + 1;
+        return answer;
+    }
+}
+
+문제가 2022년 기준 입력했을시 출생년도를 구하는 식이다.
