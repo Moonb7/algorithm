@@ -1,0 +1,20 @@
+using System;
+
+public class Solution {
+    public int solution(int num1, int num2){
+        float result = -1;
+        result = (float)num1 / (float)num2  * 1000;
+        return (int)result;
+    }
+    
+}
+
+또는 간단하게
+
+using System;
+
+public class Solution {
+    public int solution(float num1, float num2){
+        return (int)(num1 / num2 *1000);
+    }
+}
