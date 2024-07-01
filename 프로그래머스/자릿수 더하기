@@ -1,0 +1,34 @@
+
+// 내가 푼것들
+using System;
+
+public class Solution {
+    public int solution(int n) 
+    {
+        int answer = 0;
+        string st = n.ToString();
+        for(int i = 0; i < st.Length; i++)
+        {
+            answer += int.Parse(st[i].ToString());
+        }
+        Console.WriteLine(answer);
+        return answer;
+    }
+}
+
+// 다른사람이 푼 이 방법은 코드도 짧고 읽기도 좋은거 같다.
+
+public class Solution {
+    public int solution(int n) {
+        int answer = 0;
+
+        while(true){
+            answer+=n%10;
+            
+            if(n<10) break;
+            
+            n=n/10;
+        }
+        return answer;
+    }
+}
