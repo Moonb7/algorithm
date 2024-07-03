@@ -1,0 +1,11 @@
+public class Solution {
+    public int[] solution(long n) {
+        string result = n.ToString();
+        int[] answer = new int[result.Length];
+        for(int i = 0; i < result.Length; i++)
+        {
+            answer[result.Length - (i + 1)] = int.Parse(result[i].ToString());
+        }
+        return answer;
+    }
+}
