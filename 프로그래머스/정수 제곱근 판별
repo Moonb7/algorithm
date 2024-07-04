@@ -1,0 +1,19 @@
+using System;
+
+public class Solution {
+    public long solution(long n) {
+        long answer = 0;
+        double root = Math.Sqrt(n);
+        double res = root % 1;
+        if (res == 0)
+        {
+            answer = (long)root;
+            answer = (long)Math.Pow(answer+1,2);
+        }
+        else
+        {
+            answer = -1;
+        }
+        return answer;
+    }
+}
