@@ -1,0 +1,42 @@
+using System;
+
+public bool solution(int x)
+{
+    bool answer = false;
+    char[] str = x.ToString().ToCharArray();
+    int[] arr = new int[str.Length];
+
+    int temp = 0;
+    for (int i = 0; i < str.Length; i++)
+    {
+        arr[i] = int.Parse(str[i].ToString());
+
+        temp += arr[i];
+    }
+    if (x % temp == 0)
+    {
+        answer = true;
+    }
+
+    return answer;
+}
+이게 내가 푼 정답이고
+
+밑에는 gpt로 좀 더 깔끔하게 쓸수는 없을까 싶어 물어보았다.
+이게 gpt의 답이다 확실히 깔끔하고 보기도 쉽다.
+
+public bool IsHarshadNumber(int x)
+{
+    int sumOfDigits = 0;
+    int temp = x;
+
+    while (temp > 0)
+    {
+        sumOfDigits += temp % 10;
+        temp /= 10;
+    }
+
+    bool a = x % sumOfDigits == 0;
+
+    return x % sumOfDigits == 0;
+}
