@@ -1,0 +1,21 @@
+public class Solution {
+    public int solution(int num)
+    {
+        long answer = num; // 계산용과 결과값 출력용 함수
+
+        int re = 0; // 반복수 
+        while (answer != 1)
+        {
+            ++re;
+            if(re >= 501)
+            {
+                re = -1; 
+                break;
+            }
+        
+            answer = answer % 2 == 0 ? answer / 2 : answer * 3 + 1;
+        }
+            answer = re;
+            return (int)answer;
+    }
+}
