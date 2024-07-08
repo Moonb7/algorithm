@@ -1,0 +1,49 @@
+public class Solution {
+    public long solution(int a, int b) {
+        long answer = 0;
+        if (a == b)
+        {
+            answer = a;
+        }
+        else if (a < b)
+        {
+            for (int i = a; i <= b; i++)
+            {
+                answer += i;
+            }
+        }
+        else 
+        {
+            for (int i = b; i <= a; i++)
+            {
+              answer += i;
+            }
+        }
+        return answer;
+    }
+}
+
+다른 분들 풀이 입니다.
+1. 좀더 코드를 간결하고 가독성있게
+public class Solution {
+    public long solution(int a, int b) {
+        long answer = 0;
+
+        while (a != b)
+        {
+            answer += a;
+            a = (a > b) ? a - 1 : a + 1;
+        }
+
+        return answer + b;
+    }
+}
+2. Math함수 이용
+using System;
+public class Solution {
+    public long solution(int a, int b) {
+       long answer = 0;
+
+          return ((long)(Math.Abs(a - b) + 1) * (a + b)) / 2;
+    }
+}
