@@ -1,0 +1,25 @@
+public class Solution {
+    public string solution(string phone_number) {
+        string answer = "";
+        for(int i = 0; i < phone_number.Length; i++)
+        {
+            if(i >= phone_number.Length - 4)
+                answer += phone_number[i];
+            else
+                answer += "*";
+        }
+        return answer;
+    }
+}
+
+다른 사람이 푼것
+
+public class Solution {
+    public string solution(string phone_number) {
+        string answer = phone_number.Substring(phone_number.Length - 4); // 뒤에 4자리부터 순서대로 잘라서 문자열 가져오기
+        answer = answer.PadLeft(phone_number.Length, '*'); // PadLeft 문자열 크기 만큼 공백을 *로 채워넣
+        return answer;
+    }
+}
+
+public string PadLeft (int totalWidth, char paddingChar);  지정한 길이만큼 왼쪽의 안쪽 여백을 공백으로 채워서 이 인스턴스의 문자를 오른쪽에 맞추는 새 문자열을 반환합니다.
