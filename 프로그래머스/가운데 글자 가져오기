@@ -1,0 +1,43 @@
+public class Solution {
+    public string solution(string s)
+    {
+        string answer = "";
+        int i = s.Length / 2;
+        answer += s[i];
+
+        if(s.Length % 2 == 0)
+        {
+            answer = "";
+            answer += s[i-1];
+            answer += s[i];
+        }
+        return answer;
+    }
+}
+
+제출하고 보니 가독성이 좀 많이 떨어 지는 것 같다. 다음엔 제출 전에 한번 코드를 리뷰해봐야겠다.
+다른 분들이 푼것
+1.
+public class Solution {
+    public string solution(string s) {
+        int n = (s.Length+ 1)%2;
+        int l = s.Length/2 - n;
+        return s.Substring(l, n + 1);
+    }
+}
+
+2.
+using System;
+public class Solution {
+    public string solution(string s) {
+        string answer = "";
+
+        int a = s.Length / 2;
+            if (s.Length % 2 != 0)
+                answer = s.Substring(a, 1);            
+            else
+                answer = s.Substring(a - 1, 2);
+
+        return answer;
+    }
+}
