@@ -8,3 +8,13 @@ public class Solution {
         return result;
     }
 }
+
+자바스크립트
+
+function solution(num1, num2) {
+    let answer = num1 - num2;
+    return answer;
+}
+
+다른 사람
+const solution = (num1, num2) => num1 - num2
