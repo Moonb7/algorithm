@@ -27,8 +27,38 @@ public static int Getgcd(int a, int b)
 }
 
 JavaScript
+1
+function solution(n, m)
+{   let gcd = Getgcd(n, m);
+    let lcm = n*m / gcd; 
+
+    return [gcd, lcm];
+}
+
+function Getgcd(a, b)
+{
+    let r = a % b;
+
+    if (r == 0)
+    {
+        return b;
+    }
+    else
+    {
+        return Getgcd(b, r);
+    }
+    
+}
+2
 function solution(num1, num2) {
     const gcd = (a, b) => a % b === 0 ? b : gcd(b, a % b);
     const lcm = (a, b) => a * b / gcd(a, b);
     return [gcd(num1, num2), lcm(num1, num2)];
 }
+3
+function gcdlcm(a, b) {
+    let r;
+    for(var ab= a*b;r = a % b;a = b, b = r){}
+    return [b, ab/b];
+}
+
