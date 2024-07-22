@@ -13,3 +13,16 @@ public class Solution {
         return avg;
     }
 }
+
+JavaScript
+
+function solution(numbers) {
+    let answer = 0;
+    let avg;
+    for(let i = 0; i < numbers.length; i++)
+    {
+        answer += numbers[i];
+    }
+    avg = answer / numbers.length;
+    return avg;
+}
