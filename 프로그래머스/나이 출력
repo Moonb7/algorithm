@@ -9,3 +9,12 @@ public class Solution {
 }
 
 문제가 2022년 기준 입력했을시 출생년도를 구하는 식이다.
+
+JavaScript
+function solution(age) {
+    let answer = 0;
+    const baseyear = 2022;
+    answer = (baseyear - age) + 1;
+    console.log(answer);
+    return answer;
+}
