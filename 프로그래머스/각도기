@@ -24,3 +24,32 @@ public class Solution {
         return result;
     }
 }
+
+JavaScript
+function solution(angle) {
+    let answer = 0;
+    
+    if(0 < angle && angle < 90)
+    {
+        answer = 1;
+    }
+    else if(angle == 90)
+    {
+        answer = 2; 
+    }
+    else if(90 < angle && angle < 180)
+    {
+        answer = 3;    
+    }
+    else if(angle == 180)
+    {
+        answer = 4;
+    }
+    
+    return answer;
+}
+
+3 항연산자도 이용하지만 이렇게 필터라는 것을 이용합니다.
+function solution(angle) {
+    return [0, 90, 91, 180].filter(x => angle>=x).length;
+}
