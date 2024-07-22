@@ -1,0 +1,13 @@
+C#
+using System;
+
+public class Solution {
+    public int solution(int num1, int num2) {
+        int result = num1 / num2;
+        return result;
+    }
+}
+
+
+JavaScrtip 
+const solution = (num1, num2) => {return Math.floor(num1 / num2)};
