@@ -1,0 +1,28 @@
+function solution(n) {
+    let answer = 0;
+    let n3t = n.toString(3); // 문자열이면서 3진법으로 변환
+    let n3tArray = n3t.split('');
+    let temp;
+    for(let i = 0; i < Math.floor(n3tArray.length/2); i++){ // reverse 직접 구현해보기
+        temp = n3tArray[i];        
+        n3tArray[i] = n3tArray[n3tArray.length - i -1];
+        n3tArray[n3tArray.length - i -1] = temp;
+        
+    }
+    let reversedString = n3tArray.join('');
+    
+    answer = parseInt(reversedString,3);
+    
+    return answer;
+}
+
+다른 분 풀이
+const solution = (n) => {
+    return parseInt([...n.toString(3)].reverse().join(""), 3);
+}
+
+진짜 간단하게 만드네요 굿~
+
+'...' 전개 연산자(spread operator)입니다. 배열이나 문자열과 같은 이터러블 객체의 모든 요소를 개별 요소로 분해하는 데 사용됩니다. 
+전개 연산자를 사용하여 3진법 문자열의 각 문자를 개별 요소로 분해하여 배열로 만듭니다.
+예를 들어, n이 45인 경우, n.toString(3)은 "1200"이고, [..."1200"]은 ['1', '2', '0', '0']이 됩니다.
