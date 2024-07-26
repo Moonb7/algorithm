@@ -1,0 +1,24 @@
+function solution(t, p) {
+    let result = 0;
+    for(let i = 0; i < t.length; i++)
+    {
+        let arr = t.slice(i, i + p.length);
+        if(arr.length == p.length)
+        {
+            if(Number(arr) <= Number(p)) result++;        
+            console.log(arr , p);
+        }
+    }
+    return result;
+}
+
+다른 분 풀이 
+
+function solution(t, p) {
+    let count = 0;
+    for(let i=0; i<=t.length-p.length; i++) {  // 아 여기서 저는 반복 조건문이 약간 탐탁지 않은 부분이 있어 조건문을 걸어 완성했지만 이렇게 하면 되겠네요!! 이 코드가 훨씬 깔끔하네요
+        let value = t.slice(i, i+p.length);
+        if(+p >= +value) count++;
+    }
+    return count;
+}
