@@ -1,0 +1,45 @@
+function solution(sizes) {
+    let answer = 0;
+    let maxWidth = 0;   
+    let maxHeight = 0;
+    
+    for(let i = 0; i < sizes.length; i++)
+    {
+        let temp = 0;
+        if(sizes[i][0] < sizes[i][1]) // 명함이 회전을 할 수도 있어 일단 세로가 더 길면 가로 길이인척 가로 세로 길이 교체
+        {
+            temp = sizes[i][0];
+            sizes[i][0] = sizes[i][1];
+            sizes[i][1] = temp;
+        }
+
+        if(maxWidth < sizes[i][0]) maxWidth = sizes[i][0];
+        if(maxHeight < sizes[i][1]) maxHeight = sizes[i][1];
+    }
+    
+    answer = maxWidth * maxHeight;
+    
+    return answer;
+}
+
+다룬분이 푼 것
+1.
+function solution(sizes) {
+    const [hor, ver] = sizes.reduce(([h, v], [a, b]) => [Math.max(h, Math.max(a, b)), Math.max(v, Math.min(a, b))], [0, 0])
+    return hor * ver;
+}
+코드를 상당히 짧게 간결하게 작성하셨네요 이런것들 해석 풀이하는 것도 좋은 공부인것 같네요
+
+2.
+function solution(sizes) {
+    const rotated = sizes.map(([w, h]) => w < h ? [h, w] : [w, h]);
+
+    let maxSize = [0, 0];
+    rotated.forEach(([w, h]) => {
+        if (w > maxSize[0]) maxSize[0] = w;
+        if (h > maxSize[1]) maxSize[1] = h;
+    })
+    return maxSize[0]*maxSize[1];
+}
+
+이 코드는 위에 분 처럼 코드가 짧지는 않지만 간결하면서 가독성이 좋네요 굿!
