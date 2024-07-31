@@ -1,0 +1,63 @@
+function solution(s, n) {
+    let answer = '';
+    for(let i = 0; i < s.length; i++)
+    {
+        let char = s[i];
+        if(char == " ") // 공백이면 공백을 채워 주고 반복 넘기기
+        {
+            answer += " ";    
+            continue;
+        }
+        
+        let num = s.charCodeAt(i);
+        
+        if(num > 64 && num < 91) // 대문자이면 아스키코드표 참고
+        {
+            num += n;
+            if(num > 90)
+                {
+                    num -= 26;
+                }
+        }
+        else if(num > 96 && num < 123) // 소문자이면 
+        {
+            num += n;
+            if(num > 122)
+                {
+                    num -= 26;
+                }
+        }
+        const str = String.fromCharCode(num);
+        answer += str;
+    }
+    
+    return answer;
+}
+
+다른분 코드
+1.
+function solution(s, n) {
+    var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var lower = "abcdefghijklmnopqrstuvwxyz";
+    var answer= '';
+
+    for(var i =0; i <s.length; i++){
+        var text = s[i];
+        if(text == ' ') {
+            answer += ' '; 
+            continue;
+        }
+        var textArr = upper.includes(text) ? upper : lower;
+        var index = textArr.indexOf(text)+n;
+        if(index >= textArr.length) index -= textArr.length;
+        answer += textArr[index];
+    }
+    return answer;
+}
+
+2.
+function solution(s, n) {
+    var chars = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXY                          "
+    return s.split('').map(e => chars[chars.indexOf(e)+n]).join('');
+}
+
