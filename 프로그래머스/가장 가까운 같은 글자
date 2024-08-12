@@ -1,0 +1,37 @@
+function solution(s) {
+    const lastIndex = {}; // 각 문자의 마지막 위치를 저장할 객체
+    const answer = [];
+
+    for (let i = 0; i < s.length; i++) {
+        const char = s[i];
+
+        if (lastIndex[char] !== undefined) { // 이전에 문자가 등장한 적이 있는 경우, 거리 계산
+            answer.push(i - lastIndex[char]);
+        } 
+        else { // 처음 등장한 경우
+            
+            answer.push(-1);
+        }
+        lastIndex[char] = i; // 새롭게 위치를 저장후 이전에 같은 문자는 수정하여 새 위치를 저장
+    }
+
+    return answer;
+}
+
+다른 분 풀이
+1. 이거는 제거랑 비슷한 맥락에 map함수를 이용해 간단하게 작성하셨네요
+function solution(s) {
+    const hash={};
+
+    return [...s].map((v,i)=>{
+        let result = hash[v] !== undefined ? i - hash[v] : -1;
+        hash[v] = i;
+        return result;
+    });
+}
+2. lastIndexOf 이것이 있었네요 왠지 뒤에서부터 인덱스를 찾아서 위치를 받아서 해결했네
+const solution = (s) =>
+  [...s].map((char, i) => {
+    const count = s.slice(0, i).lastIndexOf(char);
+    return count < 0 ? count : i - count;
+  });
