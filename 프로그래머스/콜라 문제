@@ -1,0 +1,31 @@
+function solution(a, b, n) {
+    let answer = 0;
+    answer = solutionNum(a, b, n);
+    return answer;
+}
+
+function solutionNum (a, b, n, result = 0) {
+    if(Math.floor(n/a) > 0) {
+        let c = Math.floor(n/a) * b;
+        n = (n % a) + c;
+        result += c;
+
+        return solutionNum(a, b, n, result);
+    }
+    else { return result; }
+}
+
+다른 분들 풀이
+1. 와 이건 무슨 시간도 짧고 간결하면서 이런 생각을 어떻게 하는지 신기하네
+solution = (a, b, n) => Math.floor(Math.max(n - b, 0) / (a - b)) * b
+const solution = (a, b, n) => b * Math.floor((n - b) / (a - b)); 이건 다른 분이 위에 코드를 쉽게 풀이해준 코드입니다. 이게 더 와답긴 하네요 오
+
+2.
+function solution(a, b, n) {
+    let answer = 0;
+    while (n >= a) {
+        answer += parseInt(n / a) * b;
+        n = parseInt(n / a) * b + n % a;
+    }
+    return answer;
+}
