@@ -1,0 +1,33 @@
+function solution(k, score) {
+    const answer = [];
+    const result = [];
+    for(let i = 0; i < score.length; i++) {
+        answer.push(score[i]); // 점수 넣기
+        
+        if (answer.length > k) { // 가질수 있는 갯수가 넘어가면
+            let idx = answer.indexOf(Math.min(...answer)); // 점수중 가장 낮은 점수 index찾기
+            answer.splice(idx,1); // 가장 낮은 점수는 제거
+        }
+        result[i] = Math.min(...answer); // 가지고 있는 점수중 가장 낮은 점수 발표점수로 기록
+    }
+    return result;
+}
+
+다른 분들 풀이
+1. 깔끔하게 정돈 되계 풀이를 하셨네요 
+function solution(k, score) {
+    const stack = []
+    return score.reduce((a,c) => {
+        if(stack.length < k) {
+            stack.push(c)
+            stack.sort((a,b) => a - b)
+        }
+        else {
+            stack.push(c)
+            stack.sort((a,b) => a - b)
+            stack.shift()
+        }
+        a.push(stack[0])
+        return a
+    },[])
+}
