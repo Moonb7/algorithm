@@ -1,0 +1,51 @@
+function solution(cards1, cards2, goal) {
+    // goal은 cards의 요소를 순서대로 가져와 새로운 배열로 맟춘다고 했으니
+    // goal에 현재 요소가 cards의 첫번째 값에 있으면 제거하고 다시 반복 확인
+    // 했더니 없으면 no 실행이 완료되면 yes
+    
+    let answer = '';
+    
+    for (let i = 0; i < goal.length; i++) {
+        if(goal[i] === cards1[0]) { 
+            cards1.shift();
+        } else if (goal[i] === cards2[0]) {
+            cards2.shift();
+        } else {
+            answer = "No"
+            return answer;
+        }
+    }
+    answer = 'Yes';
+    
+    return answer;
+}
+
+다른 분들 풀이
+1.
+function solution(cards1, cards2, goal) {
+
+    for(const s of goal) {
+
+        if(cards1[0] == s) {
+            cards1.shift();
+        } else if(cards2[0] == s) {
+            cards2.shift();
+        } else {
+            return "No"
+        }
+    }
+
+    return "Yes";
+}
+
+2. 오 비슷하지만 shift함수를 쓰지 않고 그대로 인덱스 값을 올리면서 좋은 풀이인 것 같습니다.
+function solution(cards1, cards2, goal) {
+    let j = 0;
+    let k = 0;
+    for(let i=0;i<goal.length;i++){
+        if(goal[i] == cards1[j]) j++;
+        else if(goal[i] == cards2[k]) k++;
+        else return "No"
+    }
+    return "Yes";
+}
