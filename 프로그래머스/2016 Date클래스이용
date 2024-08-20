@@ -22,3 +22,15 @@ function getDayName(a,b){
   var day = date.getDay() // getDay()를 이용하였네요 오히려 이것도 깔끔하네요
     return arr[day];
 }
+
+3. Date객체를 이용하지 않고 풀이 한 것 도움이 많이 되네요
+function solution(a, b) {
+    const monthDay = [31,29,31,30,31,30,31,31,30,31,30,31]
+    const weekDay = ["THU", "FRI", "SAT", "SUN", "MON", "TUE", "WED"]
+
+    let days = b;
+    for(let i=0 ; i<a-1 ; i++)
+        days += monthDay[i]; // 나머지 지난 날짜수를 추가로 넣어줍니다.
+ // 2016년 1월 1일은 금요일 1월 7일이 목요일 입니다.
+    return weekDay[days%7]; // 그래서 7로 나누었을때 완전히 나누어지면 목요일 1이남으면 금요일을 반환해줍니다.
+}
