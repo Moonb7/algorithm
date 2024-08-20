@@ -1,0 +1,24 @@
+function solution(a, b) {
+    let answer = '';
+    
+    const date = new Date(`2016-${a}-${b}`); //
+    answer = String(date).slice(0,3).toUpperCase(); // slice로 요일 부분만 가져오기 그리고 대문자로 만들기
+    
+    return answer;
+}
+
+다른 분들 풀이
+1. 저와 비슷한 풀이네요
+function getDayName(a,b){
+    var tempDate = new Date(2016, a-1, b);
+
+    return tempDate.toString().slice(0,3).toUpperCase();
+}
+
+2.
+function getDayName(a,b){
+    var arr = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
+    var date = new Date(`2016-${a}-${b}`);
+  var day = date.getDay() // getDay()를 이용하였네요 오히려 이것도 깔끔하네요
+    return arr[day];
+}
