@@ -1,0 +1,65 @@
+function solution(k, m, score) {
+    let answer = 0;
+    score.sort((a,b) => b - a); // 내림차순으로 큰수를 앞으로 오게하여 큰 점수 사과들 부터 계산하기 용이하다
+    let boxCount = Math.floor(score.length / m);
+    
+    for (let i =0; i <= score.length; i++) {
+        if(boxCount > 0) {
+            // '박스마다' 박스 중에서 작은 점수의 사과점수를 구해서 결과에 넣어줌
+            answer += score[i * m + m - 1] * m; 
+            boxCount--;
+        } else {
+            break;
+        }
+    }
+    return answer;
+}
+
+// 계속 시간초과로 실패한 코드입니다.
+function solution(k, m, score) {
+    let answer = 0;
+    let length = score.length;
+    score.sort((a,b) => b - a);
+    
+    for (let i =0; i < length; i++) {
+        let boxCount = Math.floor(score.length / m);
+        let box = [];
+        
+        if(boxCount > 0) { // 사과를 담을수 있는 상자 수가 있고 score에서 가장 높은 점수를 가진 
+            for (let j = 0; j < m; j++) {
+                box.push(score[j]); // 가장 높은 점수를 박스에 담기                
+            }
+            score.splice(0,m); // 박스에 담은 사과 삭제
+            answer += box[box.length - 1] * m;
+        } else {
+            break;
+        }
+    }
+    return answer;
+}
+하나의 box를 의미하는 배열을 만들고 반복으로 box안에 m번 만큼돌아 큰점수의 사과들을 넣고
+slice로 score의 점수들을 m갯수 만큼 잘라서 box[box.length - 1] * m을 통해 박스마다 가장 작은 점수를 통해 결과를 구해서
+풀었었습니다.
+이게 slice가 내부적으로 아무래도 삭제를 한후 배열을 앞으로 이동시키는 과정이 오래 걸려서 시간초과로 틀린 코드가 되었던 것 같습니다.
+
+다른 분들 풀이
+1.
+function solution(k, m, score) {
+    let answer = 0;
+    const sortedScore = score.slice().sort((a, b) => a - b).slice(score.length % m);
+    for (let i = 0; i < sortedScore.length; i += m) {
+        answer += sortedScore[i] * m;
+    }
+    return answer;
+}
+
+2.
+function solution(k, m, score) {
+  let answer = 0;
+  score.sort((a, b) => b - a);
+  for (let i = 0; i < score.length; i = i + m) {
+    const min = score[i + m - 1];
+    if (min) answer += min * m;
+  }
+  return answer;
+}
