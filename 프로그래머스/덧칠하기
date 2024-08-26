@@ -1,0 +1,50 @@
+function solution(n, m, section) {
+    let answer = 0;
+    let arr = new Array(n).fill(true);
+    for(let i = 0; i < section.length; i++){
+        arr[section[i] - 1] = false; // 칠해야 될 부분체크
+    }
+    
+    for(let i = 0; i < section.length; i++) {
+        if(arr[section[i] - 1] === false){ // 칠해서 교체해줘야 되
+            for(let j = 0; j < m; j++) {
+                arr[section[i] - 1 + j] = true; // 그리고 true로 교체
+            }
+            answer++;
+        }
+    }
+
+    return answer;
+}
+
+다른 분들 풀이
+1. 오 굉장히 깔끔하게 작성된 코드이면서 이해도 쉽네요 굿 painted을 통해 한번 칠한 구역의 끝 구역으로 초기화 하여 다시 칠할 구역과 비교해서 값을 구했네요 오
+function solution(n, m, sections) {
+    var answer = 0;
+    var painted = 0;
+    for(var section of sections) {
+        if(painted < section) {
+            answer++;
+            painted = section+m-1;
+        }
+    }
+    return answer;
+}
+
+2. 오 이거는 저랑 풀이가 비슷하네요
+function solution(n, m, section) {
+    let count = 0;
+    const arr = Array.from(Array(n+1).fill(null));
+
+    section.forEach(el =>{
+        arr[el] = 1;
+    })
+
+    section.forEach(el=>{
+        if(arr[el]){
+            arr.fill(null, el, el+m)
+            count++
+        }
+    })
+    return count
+}
