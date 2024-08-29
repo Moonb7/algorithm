@@ -1,5 +1,4 @@
 function solution(nums) {
-    let answer = 0;
     const mypoketCount = Math.floor(nums.length / 2);
     const ponketmon = new Set;
     
