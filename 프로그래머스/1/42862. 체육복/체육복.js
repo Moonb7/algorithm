@@ -20,4 +20,4 @@ function solution(n, lost, reserve) {
         }
     }
     return answer;
-}
+}  
