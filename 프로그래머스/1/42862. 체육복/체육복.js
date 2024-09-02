@@ -12,11 +12,11 @@ function solution(n, lost, reserve) {
         if(resultReserve.includes(resultLost[i] - 1)) {
             answer++;
             
-            resultReserve = resultReserve.filter(r => r !== resultLost[i] - 1);
+            resultReserve = resultReserve.filter(r => r !== resultLost[i] - 1); // 옷 빌려준애는 빠지면서 재정의
         } else if(resultReserve.includes(resultLost[i] + 1)) {
             answer++;
             
-            resultReserve = resultReserve.filter(r => r !== resultLost[i] + 1);
+            resultReserve = resultReserve.filter(r => r !== resultLost[i] + 1); // 옷 빌려준애는 빠지면서 재정의
         }
     }
     return answer;
