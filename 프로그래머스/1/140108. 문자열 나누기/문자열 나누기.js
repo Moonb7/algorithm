@@ -19,3 +19,23 @@ function solution(s) {
     
     return answer;
 }
+
+// 다른 분 풀이 count를 이용해 균형을 맟추어 작성하셨습니다. 굉장히 좋은 방법이네요 균형이 딱 맟을때 0이 되니 오
+// function solution(s) {
+//     let answer = 0;
+//     let current;
+//     let count = 0;
+
+//     for(let i = 0; i < s.length; i++) {
+//         if(count === 0) {
+//             answer++;
+//             current = s[i]
+//             count = 1
+//         } else {
+//             if(current !== s[i]) count--;
+//             else count++;
+//         }
+//     }
+
+//     return answer;
+// }
