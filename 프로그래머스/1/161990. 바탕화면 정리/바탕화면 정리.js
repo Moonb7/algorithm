@@ -12,17 +12,19 @@ function solution(wallpaper) {
             findind.add(paperArr.lastIndexOf("#"))
         }
         
-        // 첫 시작점의 세로열 확인
+        // 첫 시작점의 x좌표
         if(wallpaper[i].includes("#") && !answer[0] && answer[0] !== 0) {
             answer[0] = i;
         }
         
-        // 끝 점의 세로
+        // 끝 점의 x좌표
         if(wallpaper[wallpaper.length - i - 1].includes("#") && !answer[2]) {
             answer[2] = wallpaper.length - i;
         }
     }
+    // 첫 시작점의 x좌표
     answer[1] = Math.min(...findind);
+    // 끝 점의 y좌표
     answer[3] = Math.max(...findind) + 1;
     
     return answer;
