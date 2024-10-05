@@ -21,16 +21,19 @@ function solution(park, routes) {
     for(let i = 0; i < routes.length; i++) {
         const [dir, moveLength] = routes[i].split(" ");
         let [h, w] = answer;
+        let isValidation = true;
         for(let j = 0; j < moveLength; j++) {
             h += directions[dir][0];
             w += directions[dir][1];
             if(h < 0 || w < 0 || h >= parkArea[0] || w >= parkArea[1] || park[h][w] === "X") {
-                [h, w] = answer; // 초기화
+                isValidation = false;
                 // console.log(h, w, park[h][w]);
                 break;
             }
         }
-        answer = [h, w];
+        if(isValidation){
+            answer = [h, w];
+        }
     }
     
     return answer;
