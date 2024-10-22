@@ -8,7 +8,6 @@ function solution(brown, yellow) {
     const area = brown + yellow;
     
     // 가로 세로의 모든 조합을 일단 찾습니다.
-    
     for(let i = 3; i <= Math.floor(Math.sqrt(area)); i++) {
         if(area % i === 0 ) {
             const width = area / i;
